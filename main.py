@@ -6,7 +6,6 @@ import sys
 import io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-
 with open('_names.json', 'r') as f:
     names = json.load(f)
 with open('_structs.json', 'r') as f:
@@ -185,7 +184,6 @@ class Msg:
             format_string = f"<{x}"
 
         # parse the basic type
-        print(format_string)
         size = struct.calcsize(format_string)
         parsed_basic = struct.unpack(format_string, rb[:size])
         if len(parsed_basic) == 1: parsed_basic = parsed_basic[0] #since struct unpack always returns tuple
