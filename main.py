@@ -6,12 +6,20 @@ import sys
 import io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-with open('_names.json', 'r') as f:
+import os
+# Get the directory of the current script
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Open files using paths relative to the current directory
+with open(os.path.join(current_dir, '_names.json'), 'r') as f:
     names = json.load(f)
-with open('_structs.json', 'r') as f:
+
+with open(os.path.join(current_dir, '_structs.json'), 'r') as f:
     structs = json.load(f)
-with open('_log.json', 'r') as f:
+
+with open(os.path.join(current_dir, '_log.json'), 'r') as f:
     log = json.load(f)
+
 
 
 """
